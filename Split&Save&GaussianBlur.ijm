@@ -1,12 +1,10 @@
-/* July 2019
- * Erwan Grandgirard  & Bertand Vernay
- * grandgie@igbmc.fr & vernayb@igbmc.fr
+/* February 2022
+ * Marine SILVIN
+ * silvinm@igbmc.fr 
  *  
- *  1- Open .lif serie, Spilt Chanel and save as *.*Tiff All chanel separately and composite  
  *  
  *  
 */ 
-macro "Split and Save [F2]" {
 
 // INITIALISE MACRO
 print("\\Clear");
@@ -59,4 +57,3 @@ function processFile(fileToProcess){
 			
 	}
   }
-}
