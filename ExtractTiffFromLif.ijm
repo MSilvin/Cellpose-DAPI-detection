@@ -1,10 +1,11 @@
-/* February 2022
+/* January 2022
  * Marine SILVIN
  * silvinm@igbmc.fr 
  *  
  *  
  *  
 */ 
+macro "Split and Save [F2]" {
 
 // INITIALISE MACRO
 print("\\Clear");
@@ -34,26 +35,10 @@ function processFile(fileToProcess){
         Ext.getSeriesName(seriesName);
 		run("Bio-Formats Importer", "open=&path color_mode=Default view=Hyperstack stack_order=XYCZT series_"+j+1); 
 		fileNameWithoutExtension = File.nameWithoutExtension;
-			//print(fileNameWithoutExtension);
-			run("Split Channels");
-			image1="C1-"+fileNameWithoutExtension+".lif - "+seriesName;
-			selectWindow(image1);
-			saveAs("tiff", dir2+image1+".tif");
-			//print(image1);
-			run("Close");
-			image2="C2-"+fileNameWithoutExtension+".lif - "+seriesName;
-			selectWindow(image2);
-			saveAs("tiff", dir2+image2+".tif");
-			//print(image2);
-			run("Close");
-			image3="C3-"+fileNameWithoutExtension+".lif - "+seriesName;
-			selectWindow(image3);
-			saveAs("tiff", dir2+image3+".tif");
-			run("Gaussian Blur...", "sigma=2");
-			saveAs("tiff", dir2+image3+"GaussianBlur.tif");
-			//print(image3);	
-			run("Close");
+		saveAs("tiff", dir2+seriesName+".tif");
+		run("Close");
 
 			
 	}
   }
+}
